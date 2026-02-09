@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Photo Upload Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .upload-box {
+            border: 2px dashed #aaa;
+            padding: 20px;
+            width: 300px;
+            margin: 20px auto;
+        }
+        img {
+            margin-top: 10px;
+            max-width: 250px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Upload Your Photos</h1>
+<p>Select two photos from your computer and preview them instantly.</p>
+
+<div class="upload-box">
+    <input type="file" accept="image/*" onchange="previewImage(event, 'img1')">
+    <img id="img1" />
+</div>
+
+<div class="upload-box">
+    <input type="file" accept="image/*" onchange="previewImage(event, 'img2')">
+    <img id="img2" />
+</div>
+
+<script>
+function previewImage(event, imgId) {
+    const image = document.getElementById(imgId);
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
+
+</body>
+</html>
